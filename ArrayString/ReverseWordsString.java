@@ -6,24 +6,20 @@ public class ReverseWordsString {
             int n = s.length();
             StringBuilder result = new StringBuilder();
             StringBuilder temp = new StringBuilder();
-
-            for (int i = 0; i < n; i++) {
-                if (s.charAt(i) != ' ') {
+            for(int i =0; i<n; i++){
+                if (s.charAt(i)!=' ') {
                     temp.append(s.charAt(i));
                 } else {
                     if (temp.length() > 0) {
-                        result.insert(0, temp.toString());
-                        result.insert(0, " ");
+                        result.insert(0, temp.reverse().toString() + " ");
                         temp.setLength(0);
                     }
                 }
             }
-
             // Append the last word
             if (temp.length() > 0) {
-                result.insert(0, temp.toString());
+                result.insert(0, temp.reverse().toString());
             }
-
             return result.toString().trim();
         }
     }
